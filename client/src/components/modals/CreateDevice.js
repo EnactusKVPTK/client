@@ -112,6 +112,7 @@ const CreateDevice = observer(({show, onHide}) => {
                         type="number"
                     />
                     <Form.Control
+                        style={{marginTop: '15px'}}
                         as='textarea'
                         value={description}
                         onChange={e => setDescription(e.target.value)}

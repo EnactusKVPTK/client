@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom"
 import {DEVICE_ROUTE} from "../utils/consts";
 import '../css/index.css'
 
+
 const DeviceItem = ({device}) => {
     const truncateString = (str, maxLength) => {
         if (str.length > maxLength) {

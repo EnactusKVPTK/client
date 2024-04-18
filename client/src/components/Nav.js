@@ -12,7 +12,7 @@ const Nav = () => {
                     <Container>
                     <div className='d-flex align-items-center'>
                         <Image width={60} src={logo}/>
-                        <NavLink style={{color:'black', color: '#444', fontWeight: '400', fontSize: '30pxs'}} to={SHOP_ROUTE}>OptiTredeHub</NavLink>
+                        <NavLink style={{color:'black', color: '#444', fontWeight: '400', fontSize: '30pxs'}} to={SHOP_ROUTE}>OptiTradeHub</NavLink>
                     </div>
                     <div class="input-group">
                         <Form.Control style={{padding: '5px 15px 5px 15px', marginLeft: '20px', width:'100%', border:'1px solid #888'}} type="text" placeholder='Поиск...' />

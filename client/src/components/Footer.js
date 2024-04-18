@@ -4,8 +4,6 @@ import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
     return (
-        
-
     <footer className="text-center text-lg-start bg-body-tertiary text-muted">
       <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <div className="me-5 d-none d-lg-block">
@@ -34,10 +32,10 @@ const Footer = () => {
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
-                <i className="fas fa-gem me-3"></i>Company name
+                <i className="fas fa-gem me-3"></i>OptiTradeHub
               </h6>
               <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Благодарим за ваш интерес к нашей компании!
               </p>
             </div>
     
@@ -66,10 +64,10 @@ const Footer = () => {
             </div>
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-              <p><i className="fas fa-home me-3"></i> Karaganda, KG 666, KZ</p>
+              <p><i className="fas fa-home me-3"></i> Karaganda, KG 100000, KZ</p>
               <p>
                 <i className="fas fa-envelope me-3"></i>
-                info@example.com
+                knaubanton5@gmail.com
               </p>
               <p><i className="fas fa-phone me-3"></i> + 7 747 309 1472</p>
             </div>

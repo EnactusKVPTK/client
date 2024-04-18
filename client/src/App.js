@@ -11,24 +11,23 @@ import Head from './components/Head';
 
 const App = observer(() => {
     const {user} = useContext(Context)
-    const [loading, setLoading] = useState(true)
+    // const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        try {
-            check().then(data => {
-                console.log(data)
-                user.setUser(true)
-                user.setIsAuth(true)
-            }).finally(() => setLoading(false))
-        } catch (e) {
-            console.log(e)
-        }
-        
-    }, [])
+    // useEffect(() => {
+    //     try {
+    //         check().then(data => {
+    //             console.log(data)
+    //             user.setUser(true)
+    //             user.setIsAuth(true)
+    //         }).finally(() => setLoading(false))
+    //     } catch (e) {
+    //         console.log(e)
+    //     }
+    // }, [])
 
-    if (loading) {
-        return <Spinner animation={"grow"}/>
-    }
+    // if (loading) {
+    //     return <Spinner animation={"grow"}/>
+    // }
 
     return (
         <BrowserRouter>

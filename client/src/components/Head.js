@@ -3,7 +3,7 @@ import {Context} from "../index";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import {NavLink} from "react-router-dom";
-import {ADMIN_ROUTE, BASKET_ROUTE, LOCATION_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, USER_ROUTE} from "../utils/consts";
+import {ABOUT_ROUTE, ADMIN_ROUTE, BASKET_ROUTE, LOCATION_ROUTE, LOGIN_ROUTE, SHOP_ROUTE, USER_ROUTE} from "../utils/consts";
 import {Button, Form} from "react-bootstrap";
 import {observer} from "mobx-react-lite";
 import { check } from '../http/userAPI';
@@ -29,9 +29,9 @@ const Head = observer(() => {
     useEffect(() => {
         if (user.isAuth) {
             check().then(data => {
+                setName(data.login)
                 if (data.role == "ADMIN"){
                     user.setIsAdmin(true)
-                    setName(data.login)
                 } else {
                     user.setIsAdmin(false)
                 }
@@ -155,10 +155,9 @@ const Head = observer(() => {
             </ul>
             <ul style={{color: 'white'}} class="nav navlink me-auto">
                 <li class="nav-item"><span onClick={() => navigate(SHOP_ROUTE)} class="nav-link link-dark px-2 active" aria-current="page">Home</span></li>
-                <li class="nav-item"><span class="nav-link link-dark px-2">Features</span></li>
+                <li class="nav-item"><span onClick={() => navigate(ABOUT_ROUTE)}  class="nav-link link-dark px-2">About</span></li>
                 <li class="nav-item"><span class="nav-link link-dark px-2">Pricing</span></li>
-                <li class="nav-item"><span class="nav-link link-dark px-2">FAQs</span></li>
-                <li style={{marginRight: '15px'}} class="nav-item"><span class="nav-link link-dark px-2">About</span></li>
+                <li style={{marginRight: '15px'}} class="nav-item"><span class="nav-link link-dark px-2">FAQs</span></li>
             {user.isAuth ?
                     <Nav className="ml-auto">
                         {user.isAdmin ?
