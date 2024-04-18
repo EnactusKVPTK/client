@@ -40,13 +40,13 @@ const Shop = observer(() => {
     }, [device.page, device.selectedType, device.selectedBrand,])
 
     return (
-        <Container style={{maxWidth: '1500px', margin:'0 auto'}}>
-            
+    <Container style={{margin:'0 auto'}}>
+            <Nav/>
             <Row className="mt-2">
-                <Col md={3}>
+                <Col md={2}>
                     <TypeBar/>
                 </Col>
-                <Col md={9}>
+                <Col md={10}>
                     <BrandBar/>
                     <WarningBeta/>
                     {/* <Announcement/>  */}

@@ -5,9 +5,10 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import {NavLink, useLocation, useNavigate} from "react-router-dom";
 import {LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
-import {registration, login} from "../http/userAPI";
+import {registration, login, check} from "../http/userAPI";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
+import Agreement from '../components/Agreement';
 
 const Auth = observer(() => {
     const {user} = useContext(Context)
@@ -20,7 +21,14 @@ const Auth = observer(() => {
     const [name, setName] = useState()
     const [phone, setPhone] = useState('')
     const [error, setError] = useState('')
+    const [agreementVisible, setAgreementVisible] = useState('')
+    const [myCheckbox, setMySheckbox] = useState(false)
     let rol
+
+    const handleCheckboxChange = () => {
+        setMySheckbox(!myCheckbox)
+    }
+
     const phonePattern = /^((\+7)|8)?\s?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{2}[\s.-]?\d{2}$/;
 
     if (role == 'ADMIN'){
@@ -56,6 +64,9 @@ const Auth = observer(() => {
                     return
                 } else if (!phonePattern.test(phone)) {
                     setError('Не коректный телефон')
+                    return
+                } else if (!myCheckbox) {
+                    setError('Вы должны принять политику конфиденциальности')
                     return
                 } else {
                     data = await registration(name, phone, email, password, role);
@@ -145,6 +156,11 @@ const Auth = observer(() => {
                                         Покупатель
                                     </Button>
                                 </Row>
+                                <div style={{marginTop: '10px', marginLeft:'20px', cursor: 'pointer'}}>
+                                    <Form.Check checked={myCheckbox} onChange={handleCheckboxChange} type="checkbox"/>
+                                    <span onClick={() => {setAgreementVisible(true)}}>Политика конфиденциальности</span>
+                                </div>
+                                <Agreement show={agreementVisible} onHide={() => setAgreementVisible(false)} />
                                 <br/>
                                 Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
                             </div>

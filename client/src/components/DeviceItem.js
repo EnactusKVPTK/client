@@ -22,7 +22,7 @@ const DeviceItem = ({device}) => {
 
     const navigate = useNavigate()
     return (
-        <Col md={9} className={"mt-2 device_item d-flex"} onClick={() => navigate(DEVICE_ROUTE + '/' + device.id)}>
+        <Col md={12} className={"mt-2 device_item d-flex"} onClick={() => navigate(DEVICE_ROUTE + '/' + device.id)}>
             <Image style={{}} width={190} height={175} src={process.env.REACT_APP_API_URL + device.img}/>
                 <div style={{marginLeft:'15px'}}>
                     <h3 style={{fontSize: '22px'}}>{device.name}</h3>

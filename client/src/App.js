@@ -16,12 +16,14 @@ const App = observer(() => {
     useEffect(() => {
         try {
             check().then(data => {
+                console.log(data)
                 user.setUser(true)
                 user.setIsAuth(true)
             }).finally(() => setLoading(false))
         } catch (e) {
-            console.error(e)
+            console.log(e)
         }
+        
     }, [])
 
     if (loading) {

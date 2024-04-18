@@ -10,7 +10,7 @@ import Typography from '../components/modals/Typography';
 
 const Basket = () => {
     const [devices, setDevices] = useState([])
-    const [typographyVisible, setTypographyVisible] =useState()
+    const [typographyVisible, setTypographyVisible] = useState()
     const navigate = useNavigate()
 
     useEffect(() => {

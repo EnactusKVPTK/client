@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Button, Card, Col, Container, Image, Row} from "react-bootstrap";
 import bigStar from '../assets/bigStar.png'
 import {NavLink, useParams} from 'react-router-dom'
@@ -6,10 +6,12 @@ import {fetchOneDevice} from "../http/deviceAPI";
 import { addBasket, checkBasket } from '../http/basketAPI';
 import { check } from '../http/userAPI';
 import '../css/index.css'
+import { Context } from '..';
 
 const DevicePage = () => {
     const [device, setDevice] = useState({info: []})
     const [email, setEmail] = useState('')
+    const {user} = useContext(Context)
     // const [userId, setUserId] = useState('')
     // const [inBasket, setInBasket] = useState('')
     const {id} = useParams()
@@ -17,9 +19,11 @@ const DevicePage = () => {
     // price = price.toLocaleString()
 
     useEffect(() => {
-        check().then(data => {
-            setEmail(data.email)
-        })
+        if (user.isAuth){
+            check().then(data => {
+                setEmail(data.email)
+            })
+        }
     }, [])
 
     useEffect(() => {
